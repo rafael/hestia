@@ -1,0 +1,66 @@
+= Hestia
+
+Hestia is a gem that is intended to help the proccess of managing ec2 and rds
+instances.
+
+Hestia uses Fog underhook to communicate with AWS.
+
+== Usage.
+
+To use hestia you need to install it through ruby gems.
+
+  gem install hestia
+
+
+Once you have it in your system you will have the the binary 'hestia'. You could
+type hestia help to see the options.
+
+The first thing that you should do is to run the following command:
+
+
+  hestia init path
+
+This will install in 'path' the hestia configuration file templates. Basically  
+you need to configure machines.yml and providers.yml. They should look something 
+like this: 
+
+  #mahcine.yml
+  ec2_instance_one:
+    instance_id: i-42324213 # This should be the instance id that you see in your aws console.
+    ssh_private_key: "/path/to/keypair" 
+    # this is needed only if you want to execute ssh commands remotely with hestia. 
+
+  default:
+    provider_type: aws
+    aws_access_key_id: XXXXX
+    aws_secret_access_key: XXXXX
+
+  another_account:
+    provider_type: aws
+    aws_access_key_id: XXXXX
+    aws_secret_access_key: XXXXX
+
+A default provider is mandatory. You could use other providers and pass 
+it as parameter to hestia commands (e.g hestia start staging -p another_account).
+
+Once you have configured these files you could start using hestia. Right 
+now you need to be in that path to run the commands:
+
+  cd path_to_config_files
+  hestia start your_machine
+
+== Available Commands
+
+To see the available commands use hestia help. In a glance, you could start,
+stop instances. Execute remote commands. Create volume backups. Create rds
+databases snapshots.
+
+== Disclaimer
+
+This is gem is in a very early stage. Please read the code and be sure is suitable 
+for you. 
+
+== Copyright
+
+Copyright (c) 2012 Rafael Chacón
+

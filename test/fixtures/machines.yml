@@ -1,0 +1,6 @@
+production:
+  ip: 250.25.30.99
+  identifier: production
+
+crawler:
+  identifier: crawler-machine

@@ -1,0 +1,7 @@
+production:
+  ip: 250.25.30.99
+
+crawler:
+  instance_id: i-42324213
+  ssh_private_key: "/path/to/keypair"
+  username: username_for_the_keypair

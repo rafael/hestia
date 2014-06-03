@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler'
+require 'bundler/setup'
+lib_path = File.join(File.dirname('..'), 'lib')
+$:.push(lib_path)
+
+require 'hestia'
+require 'hestia/cli'
+Hestia::CLI.start
